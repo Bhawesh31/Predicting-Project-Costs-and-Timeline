@@ -7,3 +7,5 @@ numpy
 joblib
 python-dotenv
 pydantic
+openpyxl
+python-multipart
