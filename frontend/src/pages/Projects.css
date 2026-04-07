@@ -1,0 +1,44 @@
+.projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.project-link { color: #7dd3fc; }
+.project-link:hover { text-decoration: underline; }
+
+.actions-cell { display: flex; gap: 0.5rem; align-items: center; }
+
+.empty-state { color: #64748b; }
+.empty-state a { color: #7dd3fc; }
+
+.error-msg { color: #f87171; margin-bottom: 1rem; }
+
+/* reuse shared data-table and muted from Dashboard.css via App.css */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  color: #64748b;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #1e2340;
+}
+
+.data-table td {
+  padding: 0.65rem 0.75rem;
+  color: #cbd5e1;
+  border-bottom: 1px solid #1a1f35;
+}
+
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #1a1f35; }
+
+.muted { color: #475569; font-size: 0.9rem; padding: 1rem 0; }
