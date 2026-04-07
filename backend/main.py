@@ -105,8 +105,10 @@ async def upload_file(file: UploadFile = File(...), db: Session = Depends(get_db
             df = pd.read_excel(io.BytesIO(content))
         else:
             raise HTTPException(400, "Only .csv or .xlsx files are supported")
-    except Exception as e:
-        raise HTTPException(400, f"Could not read file: {str(e)}")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(400, "Could not read file. Ensure it is a valid CSV or Excel file.")
 
     missing = [c for c in REQUIRED_COLS if c not in df.columns]
     if missing:
