@@ -8,8 +8,16 @@ from sklearn.metrics import mean_absolute_error
 COST_PATH     = "cost_model.pkl"
 TIMELINE_PATH = "timeline_model.pkl"
 
-cost_model     = joblib.load(COST_PATH)     if os.path.exists(COST_PATH)     else None
-timeline_model = joblib.load(TIMELINE_PATH) if os.path.exists(TIMELINE_PATH) else None
+def _load_model(path):
+    if not os.path.exists(path):
+        return None
+    try:
+        return joblib.load(path)
+    except Exception:
+        return None
+
+cost_model     = _load_model(COST_PATH)
+timeline_model = _load_model(TIMELINE_PATH)
 
 TYPE_MAP   = {"substation": 0, "overhead_line": 1, "underground_cable": 2}
 REGION_MAP = {"north": 0, "south": 1, "east": 2, "west": 3}
