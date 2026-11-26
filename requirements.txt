@@ -1,6 +1,10 @@
 fastapi
 uvicorn[standard]
 sqlalchemy
+psycopg2-binary
+python-multipart
+openpyxl
+requests
 scikit-learn
 pandas
 numpy

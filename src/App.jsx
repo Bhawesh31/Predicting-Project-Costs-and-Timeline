@@ -46,7 +46,7 @@ export default function App() {
             borderRadius: '0.375rem',
             marginBottom: '1rem'
           }}>
-            ⚠️ Backend API is not responding. Make sure the FastAPI server is running on http://localhost:8000
+            ⚠️ Backend API is not responding. If deployed on a free tier (Render), the server may be waking up — wait ~30 seconds and refresh.
           </div>
         )}
         <Routes>

@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, Depends, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
@@ -12,8 +13,16 @@ import io
 load_dotenv()
 init_db()
 
+raw_origins = os.getenv("ALLOWED_ORIGINS", "*")
+allowed_origins = [o.strip().rstrip("/") for o in raw_origins.split(",") if o.strip()] or ["*"]
+
 app = FastAPI(title="POWERGRID Intelligence API")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class ProjectIn(BaseModel):
     name:               str

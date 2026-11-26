@@ -1,9 +1,11 @@
 .env
 .venv/
 node_modules/
+dist/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 src/venv/
+tempCodeRunnerFile.py
 .DS_Store

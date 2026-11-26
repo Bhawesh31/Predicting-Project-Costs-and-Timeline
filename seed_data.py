@@ -1,10 +1,12 @@
 """
 seed_data.py  —  Run once to load demo projects and train ML models.
-Usage:  python seed_data.py
+Usage:  python seed_data.py [API_URL]
 """
+import os
+import sys
 import requests
 
-API = "http://localhost:8000"
+API = (sys.argv[1] if len(sys.argv) > 1 else os.getenv("API_URL", "http://localhost:8000")).rstrip("/")
 
 PROJECTS = [
     {"name":"PGCIL-NR-4412 Rajasthan-Agra 765kV",    "type":"overhead_line",     "region":"north","budget_cr":2840,"terrain_score":0.7,"duration_months":36,"vendor_perf_score":0.45,"weather_risk_score":0.75,"permit_delay_days":120},
